@@ -1,0 +1,383 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root {
+    --color-text-gris: rgb(56, 52, 52);
+    --color-text-white: rgb(231, 225, 225);
+
+}
+/********** Structures *********/
+
+.container {
+    width: 90%;
+    margin: auto;
+}
+
+body {
+    background-color: var(--color-text-white);
+}
+
+h1 {
+    font-size: 2.5em;
+    font-style: italic;
+    text-transform: capitalize;
+    color: var(--color-text-gris);
+    padding-bottom: 1em;
+}
+
+h2 {
+    font-size: 2.2em;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+    margin-top: 3em;
+}
+
+h3 {
+    font-size: 2em;
+}
+li {
+    text-transform: uppercase;
+}
+
+/********* NAVBAR ********/
+.navbar {
+    background: rgb(56, 52, 52);
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 999;
+}
+
+.navbar-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-left {
+    text-decoration: none;
+    color: yellow;
+    font-size: 1.5em;
+    font-style: italic;
+    margin: 1em 0;
+}
+
+.navbar-list {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1.5em;
+}
+
+.navbar-list a, li {
+    list-style: none;
+    text-decoration: none;
+    color: var(--color-text-white);
+    font-size: 1.2em;
+}
+
+.navbar-list a:hover {
+    color: yellow;
+}
+
+.navbar-burger {
+    display: inline-block;
+    width: 30px;
+    height: 3px;
+    background-color: var(--color-text-white);
+    border-radius: 15px;
+    position: relative;
+    transition: all .4s ease-in-out;
+}
+
+.navbar-burger::before,
+.navbar-burger::after {
+    content: "";
+    display: inline-block;
+    width: 30px;
+    height: 3px;
+    background-color: var(--color-text-white);
+    border-radius: 15px;
+    transition: all .4s ease-in-out;
+    position: absolute;
+}
+
+.navbar-burger::before {
+    top: 8px;
+}
+
+.navbar-burger::after {
+    top: -8px;
+}
+
+.link-burger {
+    display: none;
+}
+
+.link-burger.open .navbar-burger {
+    background: transparent;
+}
+
+.link-burger.open .navbar-burger::after {
+    top: 0;
+    transform: rotate(45deg);
+}
+
+.link-burger.open .navbar-burger::before {
+    top: 0;
+    transform: rotate(-45deg);
+}
+
+@media screen and (max-width: 768px) {
+    .link-burger {
+        display: inline-block;
+    }
+
+    .navbar-links ul {
+        flex-direction: column;
+        align-items: center;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: var(--color-text-gris);
+        color: var(--color-text-white);
+        gap: 0;
+        transform: scaleX(0);
+        transform-origin: top center;
+        transition: transform .4s ease-in-out;
+    }
+
+    .navbar-links ul li {
+        width: 100%;
+        text-align: center;
+        padding: 1em 0;
+    }
+
+    .navbar-links ul li:not(:first-of-type) {
+        border: 1px solid var(--color-text-white);
+    }
+
+    .navbar-links ul.open {
+        transform: scaleX(1);
+    }
+}
+
+/*********** BANNER **************/
+.banner {
+    background-image: url('../img/computer.jpg');
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 89vh;
+    display: flex;
+    text-align: center;
+    align-items: center;
+}
+
+.ban-row {
+    width: 30%;
+}
+
+.banner p {
+    color: var(--color-text-gris);
+    font-size: 4em;
+    margin-bottom: 1.5em;
+}
+
+.btn {
+    padding: 1em;
+    text-decoration: none;
+    color: var(--color-text-white);
+    background-color: rgb(190, 190, 8);
+    border-radius: 15px;
+    box-shadow: 5px 5px 15px 5px #000000;
+    font-size: 2em;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: all .4s ease-in-out;
+}
+
+.btn:hover {
+    background-color: rgb(116, 116, 4);
+}
+
+@media screen and (max-width:768px){
+    .ban-row {
+        width: 100%;
+    }
+}
+
+/********** SERVICES *************/
+.services-row {
+    display: flex;
+    justify-content: space-around;
+    gap: 2em;
+}
+
+.services-row h3 {
+    margin-top: 1em;
+}
+
+.services-card {
+    position: relative;
+    text-align: center;
+    width: 15%;
+}
+
+.services p{
+    text-align: center;
+    margin-top: 1em;
+    margin-bottom: 3em;
+}
+
+.services-img {
+    width: 100px;
+    
+}
+
+.services-form {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: yellow;
+    position: absolute;
+    top: 0;
+    left: 30%;
+    z-index: -1;
+}
+
+.services-img-2 {
+    width: 70px;
+    margin-top: 1.2em;
+}
+
+.services-img-3 {
+    width: 70px;
+    margin-top: 1em;
+}
+
+@media screen and (max-width:768px){
+    .services-row {
+        display: block;
+    }
+    .services-card {
+        width: 100%;
+    }
+    .services-form {
+        left: 35%;
+    }    
+}
+
+/********* PORTOFOLIO **********/
+.portfolio p {
+    text-align: center;
+    font-style: italic;
+    margin: 2em 0;
+}
+.portfo-column {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.portfo-card {
+    overflow: hidden;
+    text-align: center;
+    width: 300px;
+    margin: auto;
+    position: relative;
+}
+
+.img-cont {
+    width: 300px;
+    height: 200px;
+    overflow: hidden;
+    background: yellow;
+}
+
+.img-cont::after {
+    content: "";
+    display: block;
+    width: 15%;
+    height: 2%;
+    background: var(--color-text-white);
+    border-radius: 25px;
+    position: absolute;
+    top: 30%;
+    left: 42%;
+    z-index: 0;
+}
+
+.img-cont::before {
+    content: "";
+    display: block;
+    width: 15%;
+    height: 2%;
+    background: var(--color-text-white);
+    border-radius: 25px;
+    position: absolute;
+    transform: rotate(90deg);
+    top: 30%;
+    left: 42%;
+    z-index: 0;
+}
+
+.portfo-img {
+    width: 100%;
+    position: absolute;
+    background-size: cover;
+    transition: all .4s ease-in-out;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.portfo-img:hover {
+    opacity: 0;   
+}
+
+.portfo-img-2 {
+    width: 120%;
+    position: absolute;
+    top: 0;
+    left: -10%;
+}
+@media screen and (max-width:768px){
+    .portfo-column {
+        display: block;
+    }
+
+}
+
+/*************** ABOUT **************/
+.about p {
+    text-align: center;
+    margin: 2em 0;
+}
+
+.about-1 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.about-text {
+    width: 35%;
+    text-align: center;
+    margin-left: auto;
+    padding-right: 1em;
+}
+
+.about-cont {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: auto;
+}
+
+.about-img {
+    background-size: contain;
+    height: 100%;
+}
