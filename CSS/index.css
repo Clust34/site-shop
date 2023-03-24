@@ -531,12 +531,16 @@ a {
     position: relative;
 }
 
+.position {
+    position: relative;
+}
+
 .team-form {
     position: absolute;
-    width: 80%;
-    height: 53%;
-    top: -3%;
-    left: 10%;
+    width: 77%;
+    height: 106%;
+    top: -4%;
+    left: 11%;
     background-color: rgb(151, 147, 147);
     z-index: 0;
     border-radius: 50%;
@@ -565,7 +569,7 @@ a {
         width: 100%;
     }
     .team-form {
-        height: 46%;
+        height: 107%;
     }
     .team-icon {
         margin-bottom: 1em;
